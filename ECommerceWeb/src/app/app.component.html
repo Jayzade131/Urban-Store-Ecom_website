@@ -1,0 +1,11 @@
+<div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
+    <app-navbar></app-navbar>
+</div>
+<div *ngIf="isAdminLoggedIn">
+    <app-admin-nav></app-admin-nav>
+</div>
+<div *ngIf="isCustomerLoggedIn">
+    <app-customer-nav></app-customer-nav>
+</div>
+
+<router-outlet></router-outlet>

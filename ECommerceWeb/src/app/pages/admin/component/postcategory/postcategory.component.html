@@ -1,0 +1,36 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+                <mat-card>
+                    <div class="conatiner">
+                        <h1>Add Category</h1>
+                        <div class="text-center">
+                            <img class="signup-logo" src="../../../../../assets/img/category.png" alt="signup logo" />
+                        </div>
+                        <form [formGroup]="categoryForm"  (ngSubmit)="addCategory()">
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Name</mat-label>
+                                <input matInput formControlName="name" required />
+                               
+                            </mat-form-field>
+
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Description</mat-label>
+                                <input matInput formControlName="description" required/>
+                              
+                            </mat-form-field>
+
+                            <div class="btn-link">
+                                <button type="submit"  mat-raised-button color="primary">Add</button>
+
+                            </div>
+                            
+
+                        </form>
+                    </div>
+                </mat-card>
+         
+
+        </div>
+    </div>
+</div>

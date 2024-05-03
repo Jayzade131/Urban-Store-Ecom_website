@@ -1,0 +1,42 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+
+                <mat-card>
+                    <div class="conatiner ">
+                        <div class="text-center">
+                            <img class="signup-logo" src="../../../assets/img/signup.png" alt="signup logo" />
+                        </div>
+                        <form [formGroup]="SignupForm">
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Name</mat-label>
+                                <input  required  formControlName="name" matInput />
+                                <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
+                            
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Email Address</mat-label>
+                                <input  required type="email" formControlName="email"  matInput />
+                                <mat-icon matSuffix>email</mat-icon>
+                            </mat-form-field>
+                            
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input  required type="password" formControlName="password" matInput />
+                                <mat-icon matSuffix>password</mat-icon>
+                            </mat-form-field>
+
+                            <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">Register</button>
+
+                            <button type="reset" style="margin:20px ;" mat-raised-button color="warn">Reset</button>
+                            
+
+
+                        </form>
+                    </div>
+                </mat-card>
+         
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<nav>
+    <div class="wrapper">
+        <div class="logo"><img src="../../../assets/img/STORE-LOGO.png" /></div>
+
+        <ul class="nav-links">
+            <li><a [routerLink]="'/admin/dashboard'">Dashboard</a></li>
+            <li><a [routerLink]="'/admin/analytics'">Analytics</a></li>
+            <li><a [routerLink]="'/admin/category'">Category</a></li>
+            <li><a [routerLink]="'/admin/product'">Product</a></li>
+            <li><a [routerLink]="'/admin/orders'">Orders</a></li>
+            <li><a [routerLink]="'/admin/post-coupon'">Post Coupon</a></li>
+            <li><a [routerLink]="'/admin/coupons'">Coupons</a></li>
+            <li><a (click)="logOut()">Logout</a></li>
+           
+
+        </ul>
+    </div>
+</nav>

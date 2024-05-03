@@ -1,0 +1,22 @@
+<form [formGroup]="searchProductForm" (submit)="formSubmit()" >
+    <mat-form-field appearance="outline" class="search-box">
+      <input matInput formControlName="title">
+      <button mat-button matSuffix color="primary"><mat-icon >search</mat-icon></button>
+    </mat-form-field>
+  </form>
+  
+  
+  <mat-grid-list cols="4" rowHeight="500px">
+    <mat-grid-tile *ngFor="let product of products">
+  <div class="card" >
+    <img [src]="product.processedImg" alt="Denim Jeans" style="width:100%">
+    <h1>{{product.name}}</h1>
+    <p class="price">${{product.price}}</p>
+    <p>Some text about the jeans..</p>
+    <P>Category: {{product.categoryName}}</P>
+    <div class="card-actions">
+      <button mat-raised-button color="warn" (click)="addcart()">Add To Cart</button>
+    </div>
+  </div>
+  </mat-grid-tile>
+  </mat-grid-list>

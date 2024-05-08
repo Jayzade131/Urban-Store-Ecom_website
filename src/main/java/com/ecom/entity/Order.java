@@ -44,7 +44,7 @@ public class Order {
 	private UUID trackingId;
 	
 	@OneToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name="user_id", referencedColumnName = "userid")
+	@JoinColumn(name="user_id", referencedColumnName = "id")
 	private Users users;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "order")

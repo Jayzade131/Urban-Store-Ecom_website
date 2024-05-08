@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +14,8 @@ export class DashboardComponent implements OnInit {
   searchProductForm!:FormGroup;
 
   constructor(private customerService : CustomerService,
-    private fb :FormBuilder
+    private fb :FormBuilder,
+    private snakbar :MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -44,8 +47,13 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  addcart()
-  {
-    
+  addcart(productId:any)
+  { 
+
+    console.log(productId)
+      this.customerService.addToCart(productId).subscribe(res =>{
+       this.snakbar.open("Product Add To Cart","Close",{duration:5000})
+      }
+    )
   }
 }

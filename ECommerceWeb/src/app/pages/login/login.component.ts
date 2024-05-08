@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.get('password')!.value;
 
     this.authservice.login(username,password).subscribe(
+      
       (res)=>{
+       
         if(UserStorageService.isCustomerLoggedIn())
           {
             this.router.navigateByUrl('customer/dashboard');

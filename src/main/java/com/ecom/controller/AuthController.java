@@ -62,7 +62,7 @@ public class AuthController {
 		
 		if(optionaluser.isPresent())
 		{
-			response.getWriter().write(new JSONObject().put("userid", optionaluser.get().getUserid())
+			response.getWriter().write(new JSONObject().put("userid", optionaluser.get().getId())
 					.put("role", optionaluser.get().getRole()).toString());
 			
 		}

@@ -18,10 +18,11 @@ public class UserDetailsServiceImpl  implements UserDetailsService{
 	private UserRepo userRepo;
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-	Optional<Users> optionalUsers=	userRepo.findFirstByEmail(username);
+	Optional<Users> optionalUsers=userRepo.findFirstByEmail(username);
 	
 	if(optionalUsers.isEmpty()) throw new UsernameNotFoundException("username not found ",null);
-		return new User(optionalUsers.get().getEmail(),optionalUsers.get().getPassword(), new ArrayList<>());
+	return new User(optionalUsers.get().getEmail(),optionalUsers.get().getPassword(),new ArrayList<>());
+		
 	}
 
 }

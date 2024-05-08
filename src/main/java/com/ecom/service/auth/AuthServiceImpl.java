@@ -41,7 +41,7 @@ public class AuthServiceImpl implements AuthService {
 		orderRepo.save(order);
 		
 		UserDto userDto=new UserDto();
-		userDto.setUserid(createUser.getUserid());
+		userDto.setUserid(createUser.getId());
 		
 		return userDto;
 	}

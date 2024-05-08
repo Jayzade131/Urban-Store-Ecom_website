@@ -3,6 +3,8 @@ package com.ecom.entity;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.ecom.dto.CartItemsDto;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -23,7 +25,7 @@ public class CartItems {
 	
 	private Long price;
 	
-	private long quantity;
+	private Long quantity;
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY,optional = false)
@@ -40,4 +42,18 @@ public class CartItems {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="order_id")
 	private Order order;
+	
+	
+	public CartItemsDto getCartItemsDto()
+	{
+		CartItemsDto cartItemsDto=new CartItemsDto();
+		cartItemsDto.setId(id);
+		cartItemsDto.setPrice(price);
+		cartItemsDto.setQuantity(quantity);
+		cartItemsDto.setProductId(product.getId());
+		cartItemsDto.setUserId(users.getId());
+		cartItemsDto.setProductName(product.getName());
+		cartItemsDto.setReturnImg(product.getImg());
+		return cartItemsDto;
+	}
 }

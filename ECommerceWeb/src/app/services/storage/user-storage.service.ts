@@ -29,12 +29,12 @@ export class UserStorageService {
   }
 
   static getUserId(): string{
-    const user =this.getUser();
-    if(user==null)
+    const user = this.getUser();
+    if(user == null)
       {
         return '';
       }
-      return user.userId;
+      return user.userid
   }
 
   static getUserRole(): string{

@@ -1,0 +1,98 @@
+/* Styles for product card */
+.product-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* Add margin from bottom */
+}
+
+/* Styles for product image */
+.product-image img {
+    width: 150px;
+    height: 130px;
+
+}
+
+/* Styles for product details */
+.product-details {
+    flex-grow: 1;
+    padding: 15px;
+}
+
+/* Styles for product info */
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.item-price {
+    color: #ff0000;
+    font-size: 20px;
+}
+
+/* Styles for quantity controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #666;
+}
+
+.quantity {
+    margin: 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Styles for total price */
+.total-price {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #2ead00;
+    text-align: end;
+    margin-right: 320px;
+}
+
+.order-place {
+    text-align: end;
+    margin-right: 320px;
+    margin-top: 20px;
+}
+
+/* Styles for empty cart message */
+.empty-cart {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* Add margin from bottom */
+    padding: 20px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    color: #666;
+}
+
+.empty-cart mat-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #999;
+}

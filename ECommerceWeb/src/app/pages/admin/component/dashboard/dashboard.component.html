@@ -9,10 +9,10 @@
 <mat-grid-list cols="4" rowHeight="500px">
   <mat-grid-tile *ngFor="let product of products">
 <div class="card" >
-  <img [src]="product.processedImg" alt="Denim Jeans" style="width:100%">
+  <img [src]="product.processedImg"  style="width:100%">
   <h1>{{product.name}}</h1>
   <p class="price">${{product.price}}</p>
-  <p>Some text about the jeans..</p>
+  <p>{{product.description}}</p>
   <P>Category: {{product.categoryName}}</P>
   <div class="card-actions">
     <button mat-button color="primary">Update</button>

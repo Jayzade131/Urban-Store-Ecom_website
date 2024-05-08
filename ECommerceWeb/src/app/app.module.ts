@@ -17,6 +17,8 @@ import {MatCardModule} from '@angular/material/card';
 import { ReactiveFormsModule } from "@angular/forms";
 import { AdminNavComponent } from './pages/navbars/admin-nav/admin-nav.component';
 import { CustomerNavComponent } from './pages/navbars/customer-nav/customer-nav.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -30,6 +32,7 @@ import { CustomerNavComponent } from './pages/navbars/customer-nav/customer-nav.
     NavbarComponent,
     AdminNavComponent,
     CustomerNavComponent,
+    
 
   ],
   imports: [
@@ -44,7 +47,8 @@ import { CustomerNavComponent } from './pages/navbars/customer-nav/customer-nav.
     HttpClientModule,
     MatSnackBarModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   
   
  

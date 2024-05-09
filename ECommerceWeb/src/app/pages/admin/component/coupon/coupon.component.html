@@ -1,0 +1,28 @@
+<!-- data-table.component.html -->
+
+<mat-card class="data-table-card">
+  <mat-card-header class="data-table-header">
+  </mat-card-header>
+  <mat-card-content>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Coupon ID</th>
+          <th>Name</th>
+          <th>Discount</th>
+          <th>Code</th>
+          <th>Expiration Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let coupon of coupons" class="data-table-row">
+          <td>{{ coupon.id }}</td>
+          <td>{{ coupon.name }}</td>
+          <td>{{ coupon.discount }} %</td>
+          <td>{{ coupon.code }}</td>
+          <td>{{ coupon.expirationDate }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>

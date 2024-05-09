@@ -1,4 +1,4 @@
-package com.ecom.entity;
+package com.ecom.dto;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class CouponDto {
 	
-private Long id;
+    private Long id;
 	
 	private String name;
 	

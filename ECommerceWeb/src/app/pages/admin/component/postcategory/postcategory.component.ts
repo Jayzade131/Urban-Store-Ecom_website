@@ -4,6 +4,7 @@ import {  Router } from '@angular/router';
 import { AdminService } from '../../service/admin.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-postcategory',
   templateUrl: './postcategory.component.html',

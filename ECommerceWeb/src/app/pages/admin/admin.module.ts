@@ -17,6 +17,13 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { PostproductComponent } from './component/postproduct/postproduct.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { PostcouponComponent } from './component/postcoupon/postcoupon.component';
+import { CouponComponent } from './component/coupon/coupon.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
+
 
 
 @NgModule({
@@ -24,7 +31,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AdminComponent,
     DashboardComponent,
     PostcategoryComponent,
-    PostproductComponent
+    PostproductComponent,
+    PostcouponComponent,
+    CouponComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +47,12 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatCardModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+    
+   
+
 
   ]
 })

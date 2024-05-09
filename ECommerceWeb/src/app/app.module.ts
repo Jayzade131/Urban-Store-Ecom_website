@@ -18,6 +18,9 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AdminNavComponent } from './pages/navbars/admin-nav/admin-nav.component';
 import { CustomerNavComponent } from './pages/navbars/customer-nav/customer-nav.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 
@@ -32,6 +35,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     NavbarComponent,
     AdminNavComponent,
     CustomerNavComponent,
+
     
 
   ],
@@ -48,7 +52,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSnackBarModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+    
+    
   
   
  

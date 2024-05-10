@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.ecom.constants.OrderStatus;
+import com.ecom.dto.OrderDto;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -33,6 +34,8 @@ public class Order {
 	
 	private Long amount;
 	
+	private String address;
+	
 	private String payment;
 	
 	private OrderStatus orderStatus;
@@ -47,9 +50,30 @@ public class Order {
 	@JoinColumn(name="user_id", referencedColumnName = "id")
 	private Users users;
 	
+	@OneToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name="coupon_id", referencedColumnName = "id")
+	private Coupon coupon;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
 	private List<CartItems> cartItems;
 	
+	public OrderDto getOrderDto()
+	{
+		OrderDto orderDto=new OrderDto();
+		orderDto.setId(id);
+		orderDto.setDate(date);
+		orderDto.setOrderDesc(orderDesc);
+		orderDto.setAmount(amount);
+		orderDto.setOrderStatus(orderStatus);
+		orderDto.setAddress(address);
+		orderDto.setUserName(users.getName());
+		orderDto.setTrackingId(trackingId);
+		if(coupon !=null)
+		{
+			orderDto.setCouponName(coupon.getName());
+		}
+		return orderDto;
 	
+	}
 	
 }

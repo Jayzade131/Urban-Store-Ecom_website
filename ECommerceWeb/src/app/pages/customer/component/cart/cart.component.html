@@ -29,8 +29,23 @@
         <div class="total-price">
              Amount : {{order.amount | currency}}
         </div>
+        <div class="total-price">
+            Coupon : {{order.couponName}}
+       </div>
         <div class="order-place">
             <button mat-flat-button color="primary">Placed Order</button>
+        </div>
+
+        <div class="coupon-conatiner"  *ngIf="order.couponName==null">
+            <form [formGroup]="couponForm" (ngSubmit)="applycoupon()">
+            <mat-form-field  appearance="outline" class="full-width">
+                <mat-label>Code</mat-label>
+                <input matInput formControlName="code" required />
+         
+            </mat-form-field>
+            <br>
+            <button mat-flat-button color="warn" type="submit">Placed Order</button>
+        </form>
         </div>
         
         

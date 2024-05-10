@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { MatDialog } from '@angular/material/dialog';
@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
 
   order:any;
 
+  couponForm!:FormGroup;
 
 
   constructor(
@@ -26,6 +27,10 @@ export class CartComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+   
+    this.couponForm=this.fb.group({
+      code :[null,[Validators.required]]
+    })
     this.getCart();
   }
 
@@ -37,6 +42,20 @@ export class CartComponent implements OnInit {
       res.cartItems.forEach(element => {
         element.processedImg= 'data:image/jpeg;base64,' +element.returnImg;
         this.cartItems.push(element); 
+      });
+    })
+  }
+
+  applycoupon()
+  {
+    this.customerService.applyCoupon(this.couponForm.get(['code'])!.value).subscribe(res =>{
+      this.snackbar.open("Coupon Applied Sucessfully",'close',{
+        duration :5000
+      });
+      this.getCart();
+    },error =>{
+      this.snackbar.open(error.error,'close',{
+        duration :5000
       });
     })
   }

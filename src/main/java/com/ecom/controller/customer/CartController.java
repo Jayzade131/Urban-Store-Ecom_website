@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecom.customerService.CartService;
 import com.ecom.dto.AddProductInCartDto;
 import com.ecom.dto.OrderDto;
+import com.ecom.exceptions.ValidationException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -36,5 +37,16 @@ public class CartController {
 			OrderDto orderDto = cartService.getCartByUserId(userId);
 			
 			return ResponseEntity.status(HttpStatus.OK).body(orderDto);
+		}
+		
+		@GetMapping("/coupon/{userId}/{code}")
+		public ResponseEntity<?> applyCoupon(@PathVariable Long userId,@PathVariable String code)
+		{
+			try {
+				OrderDto applyCoupon = cartService.applyCoupon(userId, code);
+				return ResponseEntity.ok(applyCoupon);
+			} catch (ValidationException e) {
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+			}
 		}
 }

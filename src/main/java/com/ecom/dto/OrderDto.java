@@ -18,6 +18,8 @@ private Long id;
 	
 	private Long amount;
 	
+	private String address;
+	
 	private String payment;
 	
 	private OrderStatus orderStatus;
@@ -32,5 +34,7 @@ private Long id;
 	private String userName;
 	
 	private List<CartItemsDto> cartItems;
+	
+	private String couponName;
 
 }

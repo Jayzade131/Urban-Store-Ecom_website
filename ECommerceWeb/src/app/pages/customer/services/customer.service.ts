@@ -53,9 +53,27 @@ export class CustomerService {
      })
    }
    
+   increaseProductQuantity(productId:any):Observable<any>{
+    const cartDto = {
+       productId :productId,
+       userId: UserStorageService.getUserId()
+     }
+     console.log(cartDto)
+     return this.http.post(BASIC_URL + `api/customer/addition`, cartDto, {
+       headers: this.createAuthorizationHeader(),
+ })
+   }
 
-
-
+   decrProductQuantity(productId:any):Observable<any>{
+    const cartDto = {
+       productId :productId,
+       userId: UserStorageService.getUserId()
+     }
+     console.log(cartDto)
+     return this.http.post(BASIC_URL + `api/customer/substraction`, cartDto, {
+       headers: this.createAuthorizationHeader(),
+ })
+   }
 
 
   private  createAuthorizationHeader(): HttpHeaders{

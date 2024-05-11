@@ -136,4 +136,69 @@ public class CartServiceImpl implements CartService {
 		return expirationDate !=null && currentDate.after(expirationDate);
 	}
 	
+	public OrderDto increaseProductQuantity(AddProductInCartDto addProductInCartDto)
+	{
+		Order activeOrder=	orderRepo.findByUsersIdAndOrderStatus(addProductInCartDto.getUserId(), OrderStatus.Pending);
+		Optional<Product> optionalProduct = productRepo.findById(addProductInCartDto.getProductId());
+		
+		Optional<CartItems> optionalCartItems=cartItemRepo.findByProductIdAndOrderIdAndUsersId(addProductInCartDto.getProductId(),
+				activeOrder.getId(),addProductInCartDto.getUserId());
+		
+		if(optionalProduct.isPresent() && optionalCartItems.isPresent())	
+		{
+			CartItems cartItems=optionalCartItems.get();
+			Product product=optionalProduct.get();
+			
+			activeOrder.setAmount(activeOrder.getAmount() + product.getPrice());
+			activeOrder.setTotalAmount(activeOrder.getTotalAmount() + product.getPrice());
+			cartItems.setQuantity(cartItems.getQuantity() + 1);
+			
+			if(activeOrder.getCoupon() != null) 
+			{
+				double discountAmount = (activeOrder.getCoupon().getDiscount()/100.0) * activeOrder.getTotalAmount();
+				double netAmount = activeOrder.getTotalAmount() - discountAmount;
+				
+					activeOrder.setAmount((long)netAmount);
+					activeOrder.setDiscount((long)discountAmount);
+			}
+			cartItemRepo.save(cartItems);
+			orderRepo.save(activeOrder);
+			return activeOrder.getOrderDto();
+		}
+		return null;
+		
+	}
+	
+	public OrderDto decreaseProductQuantity(AddProductInCartDto addProductInCartDto)
+	{
+		Order activeOrder=	orderRepo.findByUsersIdAndOrderStatus(addProductInCartDto.getUserId(), OrderStatus.Pending);
+		Optional<Product> optionalProduct = productRepo.findById(addProductInCartDto.getProductId());
+		
+		Optional<CartItems> optionalCartItems=cartItemRepo.findByProductIdAndOrderIdAndUsersId(addProductInCartDto.getProductId(),
+				activeOrder.getId(),addProductInCartDto.getUserId());
+		
+		if(optionalProduct.isPresent() && optionalCartItems.isPresent())	
+		{
+			CartItems cartItems=optionalCartItems.get();
+			Product product=optionalProduct.get();
+			
+			activeOrder.setAmount(activeOrder.getAmount() - product.getPrice());
+			activeOrder.setTotalAmount(activeOrder.getTotalAmount() - product.getPrice());
+			cartItems.setQuantity(cartItems.getQuantity() - 1);
+			
+			if(activeOrder.getCoupon() != null) 
+			{
+				double discountAmount = (activeOrder.getCoupon().getDiscount()/100.0) * activeOrder.getTotalAmount();
+				double netAmount = activeOrder.getTotalAmount() - discountAmount;
+				
+					activeOrder.setAmount((long)netAmount);
+					activeOrder.setDiscount((long)discountAmount);
+			}
+			cartItemRepo.save(cartItems);
+			orderRepo.save(activeOrder);
+			return activeOrder.getOrderDto();
+		}
+		return null;
+	}
+	
 }

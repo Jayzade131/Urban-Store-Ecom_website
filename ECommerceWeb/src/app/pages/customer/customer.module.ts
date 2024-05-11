@@ -16,13 +16,15 @@ import { ReactiveFormsModule } from "@angular/forms";
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { CartComponent } from './component/cart/cart.component';
+import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 
 
 @NgModule({
   declarations: [
     CustomerComponent,
     DashboardComponent,
-    CartComponent
+    CartComponent,
+    PlacedOrderComponent
   ],
   imports: [
     CommonModule,

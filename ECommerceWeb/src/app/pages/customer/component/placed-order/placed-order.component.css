@@ -1,0 +1,30 @@
+/* CSS for mat-card */
+.mat-card {
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.mat-card-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* CSS for buttons */
+button {
+    width: 45%;
+}
+
+/* Additional styles as needed */

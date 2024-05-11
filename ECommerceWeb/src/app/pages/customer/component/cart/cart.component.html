@@ -33,7 +33,7 @@
             Coupon : {{order.couponName}}
        </div>
         <div class="order-place">
-            <button mat-flat-button color="primary">Placed Order</button>
+            <button mat-flat-button color="primary" (click)="placedbtn()">Placed Order</button>
         </div>
 
         <div class="coupon-conatiner"  *ngIf="order.couponName==null">
@@ -44,7 +44,7 @@
          
             </mat-form-field>
             <br>
-            <button mat-flat-button color="warn" type="submit">Placed Order</button>
+            <button mat-flat-button color="warn" type="submit" >Add Coupon</button>
         </form>
         </div>
         

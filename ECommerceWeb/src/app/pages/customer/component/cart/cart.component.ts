@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerService } from '../../services/customer.service';
+import { PlacedOrderComponent } from '../placed-order/placed-order.component';
 
 @Component({
   selector: 'app-cart',
@@ -22,7 +23,7 @@ export class CartComponent implements OnInit {
   constructor(
     private snackbar:MatSnackBar,
     private fb:FormBuilder,
-    private dilong: MatDialog,
+    private dialong: MatDialog,
     private customerService: CustomerService,
   ) { }
 
@@ -80,6 +81,11 @@ export class CartComponent implements OnInit {
       });
       this.getCart();
     })
+  }
+
+  placedbtn()
+  {
+    this.dialong.open(PlacedOrderComponent);
   }
   
 

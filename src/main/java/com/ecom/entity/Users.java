@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 public class Users {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String password;
 	private String email;

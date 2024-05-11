@@ -3,6 +3,7 @@ package com.ecom.customerServiceImpl;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import com.ecom.customerService.CartService;
 import com.ecom.dto.AddProductInCartDto;
 import com.ecom.dto.CartItemsDto;
 import com.ecom.dto.OrderDto;
+import com.ecom.dto.PlaceOrderDto;
 import com.ecom.entity.CartItems;
 import com.ecom.entity.Coupon;
 import com.ecom.entity.Order;
@@ -196,6 +198,33 @@ public class CartServiceImpl implements CartService {
 			}
 			cartItemRepo.save(cartItems);
 			orderRepo.save(activeOrder);
+			return activeOrder.getOrderDto();
+		}
+		return null;
+	}
+	
+	public OrderDto placeOrder(PlaceOrderDto placeOrderDto)
+	{
+		Order activeOrder=	orderRepo.findByUsersIdAndOrderStatus(placeOrderDto.getUserId(), OrderStatus.Pending);
+		Optional<Users> optionalUser = userRepo.findById(placeOrderDto.getUserId());
+		if(optionalUser.isPresent())
+		{
+			activeOrder.setAddress(placeOrderDto.getAddress());
+			activeOrder.setOrderDesc(placeOrderDto.getOrderDesc());
+			activeOrder.setDate(new Date());
+			activeOrder.setOrderStatus(OrderStatus.Placed);
+			activeOrder.setTrackingId(UUID.randomUUID());
+			
+			orderRepo.save(activeOrder);
+			
+			Order order=new Order();
+			order.setAmount(0L);
+			order.setTotalAmount(0L);
+			order.setDiscount(0L);
+			order.setUsers(optionalUser.get());
+			order.setOrderStatus(OrderStatus.Pending);
+			orderRepo.save(order);
+				
 			return activeOrder.getOrderDto();
 		}
 		return null;

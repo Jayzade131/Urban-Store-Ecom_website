@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecom.customerService.CartService;
 import com.ecom.dto.AddProductInCartDto;
 import com.ecom.dto.OrderDto;
+import com.ecom.dto.PlaceOrderDto;
 import com.ecom.exceptions.ValidationException;
 
 import lombok.RequiredArgsConstructor;
@@ -65,4 +66,9 @@ public class CartController {
 			
 		}
 		
+		@PostMapping("/placedOrder")
+		public ResponseEntity<?> placedOrder(@RequestBody PlaceOrderDto placeOrderDto)
+		{
+			return  ResponseEntity.status(HttpStatus.CREATED).body(cartService.placeOrder(placeOrderDto));
+		}
 }

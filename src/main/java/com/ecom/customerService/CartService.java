@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.ecom.dto.AddProductInCartDto;
 import com.ecom.dto.OrderDto;
+import com.ecom.dto.PlaceOrderDto;
 
 public interface CartService {
 	
@@ -16,4 +17,6 @@ public interface CartService {
 	public OrderDto increaseProductQuantity(AddProductInCartDto addProductInCartDto);
 	
 	public OrderDto decreaseProductQuantity(AddProductInCartDto addProductInCartDto);
+	
+	public OrderDto placeOrder(PlaceOrderDto placeOrderDto);
 }

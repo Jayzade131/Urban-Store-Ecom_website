@@ -20,6 +20,7 @@ import { CustomerNavComponent } from './pages/navbars/customer-nav/customer-nav.
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -54,7 +55,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ReactiveFormsModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule
     
     
   

@@ -21,6 +21,9 @@ import { PostcouponComponent } from './component/postcoupon/postcoupon.component
 import { CouponComponent } from './component/coupon/coupon.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { OrdersComponent } from './component/orders/orders.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -33,7 +36,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     PostcategoryComponent,
     PostproductComponent,
     PostcouponComponent,
-    CouponComponent
+    CouponComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +53,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     MatGridListModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatMenuModule,
+    MatTableModule
     
    
 

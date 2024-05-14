@@ -1,5 +1,7 @@
 package com.ecom.repo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,5 +11,7 @@ import com.ecom.entity.Order;
 public interface OrderRepo extends JpaRepository<Order,Long> {
 
 	Order findByUsersIdAndOrderStatus(Long id, OrderStatus orderstatus);
+	
+	List<Order> findAllByOrderStatusIn(List<OrderStatus> orderStatuslist);
 
 }

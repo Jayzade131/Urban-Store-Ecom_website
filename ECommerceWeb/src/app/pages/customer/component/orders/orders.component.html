@@ -1,0 +1,32 @@
+<!-- data-table.component.html -->
+
+<mat-card class="data-table-card">
+    <mat-card-header class="data-table-header">
+    </mat-card-header>
+    <mat-card-content>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Tracking ID</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Address</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders" class="data-table-row">
+                    <td>{{ order.trackingId }}</td>
+                    <td>{{ order.date | date : 'dd/mm/yyyy' }}</td>
+                    <td>{{ order.orderDesc }}</td>
+                    <td>{{order.address}}</td>
+                    <td>{{ order.amount }}</td>
+                    <td>{{ order.orderStatus }}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>

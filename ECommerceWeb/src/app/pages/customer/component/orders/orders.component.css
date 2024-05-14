@@ -1,0 +1,48 @@
+data-table.component.css .data-table-card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 30px;
+}
+
+.data-table-header {
+    background-color: #cccccc;
+    /* Gray background for the card header */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #fbffc5;
+    /* Light gray background for table header */
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.data-table-row {
+    background-color: #e0f2f1;
+    /* Light blue background for table rows */
+    color: black;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #e0f2f1;
+    /* Light blue background for even rows */
+}
+
+.data-table tbody tr:hover {
+    background-color: #aed581;
+    /* Light green background on hover */
+}

@@ -17,6 +17,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { CartComponent } from './component/cart/cart.component';
 import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
+import { OrdersComponent } from './component/orders/orders.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PlacedOrderComponent } from './component/placed-order/placed-order.comp
     CustomerComponent,
     DashboardComponent,
     CartComponent,
-    PlacedOrderComponent
+    PlacedOrderComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,

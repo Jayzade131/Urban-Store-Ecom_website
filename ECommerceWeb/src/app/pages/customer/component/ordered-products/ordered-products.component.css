@@ -1,0 +1,21 @@
+mat-card-subtitle {
+    font-size: 15px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.example-card1 {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+}
+
+.example-card2 {
+    margin: 30px;
+    text-align: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}

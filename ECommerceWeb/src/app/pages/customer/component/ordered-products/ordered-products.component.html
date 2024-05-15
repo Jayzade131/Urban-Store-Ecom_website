@@ -1,1 +1,24 @@
-<p>ordered-products works!</p>
+<div class="container">
+    <mat-card class="example-card2" *ngFor="let product of orderedProductdetailsList">
+        <mat-card class="example-card1">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-title>{{product.name}}</mat-card-title>
+
+                    <mat-card-subtitle>Price : {{product.price | currency}}</mat-card-subtitle>
+                    <mat-card-subtitle>Quantity : {{product.quantity}}</mat-card-subtitle>
+                    <img mat-card-md-image [src]="product.processedImg">
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+                <button mat-raised-button color="accent">
+
+                    Review
+                </button>
+            </mat-card-content>
+        </mat-card>
+
+        <h2>Total Amount : {{ totalAmount | currency}}</h2>
+
+    </mat-card>
+</div>

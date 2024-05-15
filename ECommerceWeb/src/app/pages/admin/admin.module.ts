@@ -24,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { OrdersComponent } from './component/orders/orders.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
+import { FAQComponent } from './component/faq/faq.component';
 
 
 
@@ -37,7 +38,8 @@ import {MatTableModule} from '@angular/material/table';
     PostproductComponent,
     PostcouponComponent,
     CouponComponent,
-    OrdersComponent
+    OrdersComponent,
+    FAQComponent
   ],
   imports: [
     CommonModule,

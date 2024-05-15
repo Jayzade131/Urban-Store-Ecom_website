@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../service/admin.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,57 +11,57 @@ import Swal from 'sweetalert2';
 })
 export class DashboardComponent implements OnInit {
 
-  products : any[]=[];
-  searchProductForm!:FormGroup;
-  
-  constructor( private adminService: AdminService,
-   private fb :FormBuilder
+  products: any[] = [];
+  searchProductForm!: FormGroup;
+
+  constructor(private adminService: AdminService,
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.getAllProducts();
     this.searchProductForm = this.fb.group({
-      title :[null,[Validators.required]]
+      title: [null, [Validators.required]]
     })
   }
-  getAllProducts()
-  {
-    this.products=[];
-    this.adminService.getAllProduct().subscribe(res =>{
+  getAllProducts() {
+    this.products = [];
+    this.adminService.getAllProduct().subscribe(res => {
       res.forEach(element => {
-        element.processedImg ='data:image/jpeg;base64,'+ element.byteimg;
-        this.products.push(element);        
+        element.processedImg = 'data:image/jpeg;base64,' + element.byteimg;
+        this.products.push(element);
       });
     })
   }
 
-  formSubmit(){
-    this.products=[];
-    const title=this.searchProductForm.get('title')!.value;
-    this.adminService.getAllProductByName(title).subscribe(res =>{
+  formSubmit() {
+    this.products = [];
+    const title = this.searchProductForm.get('title')!.value;
+    this.adminService.getAllProductByName(title).subscribe(res => {
       res.forEach(element => {
-        element.processedImg ='data:image/jpeg;base64,'+ element.byteimg;
-        this.products.push(element);        
+        element.processedImg = 'data:image/jpeg;base64,' + element.byteimg;
+        this.products.push(element);
       });
       console.log(this.products)
     })
   }
 
-  deleteProduct(productId:any)
-  {
-    this.adminService.deleteProduct(productId).subscribe(res=>{
-      if(res.body==null)
-        {
-          Swal.fire({
-            title: "Product Delete Successfully",
-            text: "You clicked the button!",
-            icon: "success"
-          });
-          this.getAllProducts();
-        }
-        else{
-          Swal.fire("Something went wrong");
-        }
+  deleteProduct(productId: any) {
+    this.adminService.deleteProduct(productId).subscribe(res => {
+      if (res.body == null) {
+        Swal.fire({
+          title: "Product Delete Successfully",
+          text: "You clicked the button!",
+          icon: "success"
+        });
+        this.getAllProducts();
+      }
+      else {
+        Swal.fire("Something went wrong");
+      }
     })
   }
+
+
 }

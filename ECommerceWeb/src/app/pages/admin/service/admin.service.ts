@@ -78,6 +78,14 @@ export class AdminService {
       })
   }
 
+  insertFQA(productId: number, FAQDto: any): Observable<any> {
+    return this.http.post
+      (BASIC_URL + `api/admin/faq/${productId}`, FAQDto, {
+        headers: this.createAuthorizationHeader(),
+      })
+  }
+
+
 
 
 

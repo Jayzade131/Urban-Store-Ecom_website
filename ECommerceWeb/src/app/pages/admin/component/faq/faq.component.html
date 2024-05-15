@@ -1,0 +1,31 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <mat-card>
+                <div class="conatiner ">
+                    <div class="text-center">
+                        <img class="signup-logo" src="../../../../../assets/img/FAQs-cuate.png" alt="logo" />
+                    </div>
+                    <form [formGroup]="FAQform" (ngSubmit)="postFAQ()">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Question</mat-label>
+                            <input required formControlName="que" matInput />
+
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Answer</mat-label>
+                            <input required type="email" formControlName="ans" matInput />
+
+                        </mat-form-field>
+
+                        <button type="submit" mat-raised-button color="primary" type="submit">Add</button>
+
+                    </form>
+                </div>
+            </mat-card>
+
+
+        </div>
+    </div>
+</div>

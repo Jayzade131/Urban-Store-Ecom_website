@@ -1,0 +1,28 @@
+.text-center {
+    text-align: center;
+}
+
+.signup-logo {
+    width: 300px;
+    margin-top: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.bootstrap-wrapper {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-left: 500px;
+    margin-right: 500px;
+
+}
+
+mat-label {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+}
+
+mat-card {
+    margin-top: 40px;
+}

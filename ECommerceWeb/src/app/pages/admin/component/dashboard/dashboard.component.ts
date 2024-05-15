@@ -49,17 +49,7 @@ export class DashboardComponent implements OnInit {
 
   deleteProduct(productId: any) {
     this.adminService.deleteProduct(productId).subscribe(res => {
-      if (res.body == null) {
-        Swal.fire({
-          title: "Product Delete Successfully",
-          text: "You clicked the button!",
-          icon: "success"
-        });
-        this.getAllProducts();
-      }
-      else {
-        Swal.fire("Something went wrong");
-      }
+      this.getAllProducts();
     })
   }
 

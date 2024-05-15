@@ -1,27 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AdminService } from '../../service/admin.service';
-import { Route, Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AdminService } from '../../service/admin.service';
 
 @Component({
-  selector: 'app-postproduct',
-  templateUrl: './postproduct.component.html',
-  styleUrls: ['./postproduct.component.css']
+  selector: 'app-updateproduct',
+  templateUrl: './updateproduct.component.html',
+  styleUrls: ['./updateproduct.component.css']
 })
-export class PostproductComponent implements OnInit {
+export class UpdateproductComponent implements OnInit {
+
+  productId: number = this.actrt.snapshot.params['productId'];
   productForm: FormGroup;
   listOfCategories: any = [];
   selectedFile: File | null;
   imagePreview: string | ArrayBuffer | null;
+  existingimg: string | null = null;
+  imgChange = false;
+
+
   constructor(private fb: FormBuilder,
     private adminServive: AdminService,
-    private router: Router
+    private router: Router,
+    private actrt: ActivatedRoute,
   ) { }
 
   onFileSelected(events: any) {
     this.selectedFile = events.target.files[0];
     this.previewimage();
+    this.imgChange = true;
+    this.existingimg = null;
 
   }
 
@@ -43,6 +52,7 @@ export class PostproductComponent implements OnInit {
 
 
     this.getAllCategories();
+    this.getproductById();
   }
 
   getAllCategories() {
@@ -51,19 +61,33 @@ export class PostproductComponent implements OnInit {
     })
   }
 
-  addProduct(): void {
+
+
+  getproductById() {
+    this.adminServive.getProductById(this.productId).subscribe(res => {
+      this.productForm.patchValue(res);
+      this.existingimg = 'data:image/jpeg;base64,' + res.byteimg;
+    })
+  }
+
+  updateProduct(): void {
     const formData: FormData = new FormData();
-    formData.append('img', this.selectedFile);
+
+    if (this.imgChange && this.selectedFile) {
+      formData.append('img', this.selectedFile);
+    }
+
+
     formData.append('categoryId', this.productForm.get('categoryId').value);
     formData.append('name', this.productForm.get('name').value);
     formData.append('description', this.productForm.get('description').value);
     formData.append('price', this.productForm.get('price').value);
 
 
-    this.adminServive.addProduct(formData).subscribe((res) => {
+    this.adminServive.updateProduct(this.productId, formData).subscribe((res) => {
       if (res.id != null) {
         Swal.fire({
-          title: "Product Add Sucessfully..",
+          title: "Product Updated Sucessfully..",
           icon: "success"
         });
         this.router.navigateByUrl("/admin/dashboard");

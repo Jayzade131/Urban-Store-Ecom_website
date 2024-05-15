@@ -1,0 +1,58 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <mat-card>
+                <div class="conatiner ">
+                    <div class="text-center">
+                        <img class="signup-logo" src="../../../../../assets/img/Online Review-rafiki.png" />
+                    </div>
+                    <form [formGroup]="reviewFrom" (ngSubmit)="submitForm()">
+
+                        <div class="file-upload-container">
+                            <label class="file-upload-label">
+                                <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden>
+                                <mat-icon>attach_file</mat-icon>
+                            </label>
+
+                            <div *ngIf="selectedFile" class="image-preview">
+                                <div class="circle-img">
+                                    <img [src]="imagepreview" class="preview-image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Select a Rating !</mat-label>
+                            <mat-select formControlName="rating">
+
+                                <mat-option value="1">1 Star</mat-option>
+                                <mat-option value="2">2 Stars</mat-option>
+                                <mat-option value="3">3 Stars</mat-option>
+                                <mat-option value="4">4 Stars</mat-option>
+                                <mat-option value="5">5 Stars</mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput formControlName="description" required rows="5"></textarea>
+
+                        </mat-form-field>
+
+
+
+
+                        <div class="btn-link">
+                            <button type="submit" mat-raised-button color="primary">Submit</button>
+
+                        </div>
+
+
+                    </form>
+                </div>
+            </mat-card>
+
+
+        </div>
+    </div>
+</div>

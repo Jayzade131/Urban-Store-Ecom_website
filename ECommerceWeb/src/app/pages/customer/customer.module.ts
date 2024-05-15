@@ -19,6 +19,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 import { OrdersComponent } from './component/orders/orders.component';
 import { OrderedProductsComponent } from './component/ordered-products/ordered-products.component';
+import { PostReviewComponent } from './component/post-review/post-review.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { OrderedProductsComponent } from './component/ordered-products/ordered-p
     CartComponent,
     PlacedOrderComponent,
     OrdersComponent,
-    OrderedProductsComponent
+    OrderedProductsComponent,
+    PostReviewComponent
   ],
   imports: [
     CommonModule,

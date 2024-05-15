@@ -11,7 +11,7 @@
                 </mat-card-title-group>
             </mat-card-header>
             <mat-card-content>
-                <button mat-raised-button color="accent">
+                <button mat-raised-button color="accent" [routerLink]="['/customer/postreview', product.id]">
 
                     Review
                 </button>

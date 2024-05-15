@@ -11,46 +11,43 @@ import Swal from 'sweetalert2';
   styleUrls: ['./placed-order.component.css']
 })
 export class PlacedOrderComponent implements OnInit {
-placedForm !:FormGroup;
+  placedForm !: FormGroup;
   constructor(
-    private customerService :CustomerService,
-    private fb:FormBuilder,
-    private rt:Router,
+    private customerService: CustomerService,
+    private fb: FormBuilder,
+    private rt: Router,
     private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.placedForm=this.fb.group({
-      address:[null,[Validators.required]],
-      orderDesc:[null]
+    this.placedForm = this.fb.group({
+      address: [null, [Validators.required]],
+      orderDesc: [null]
     })
   }
 
-  placedOrder()
-  {
-    this.customerService.placedOrder(this.placedForm.value).subscribe(res =>{
-      if(res.id !=null)
-        {
-          Swal.fire({
-            title: "Order Placed",
-            text: "Order Placed Sucessfully",
-            icon: "success"
-          });
-          this.rt.navigateByUrl("/customer/my-orders");
-        }
-        else{
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-          
-          });
-        }
+  placedOrder() {
+    this.customerService.placedOrder(this.placedForm.value).subscribe(res => {
+      if (res.id != null) {
+        Swal.fire({
+          title: "Order Placed",
+          text: "Order Placed Sucessfully",
+          icon: "success"
+        });
+        this.rt.navigateByUrl("/customer/placed-order");
+      }
+      else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+
+        });
+      }
     })
   }
 
-  closeForm()
-  {
+  closeForm() {
     this.dialog.closeAll();
   }
 

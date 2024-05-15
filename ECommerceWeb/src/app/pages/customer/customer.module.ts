@@ -18,6 +18,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { CartComponent } from './component/cart/cart.component';
 import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 import { OrdersComponent } from './component/orders/orders.component';
+import { OrderedProductsComponent } from './component/ordered-products/ordered-products.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { OrdersComponent } from './component/orders/orders.component';
     DashboardComponent,
     CartComponent,
     PlacedOrderComponent,
-    OrdersComponent
+    OrdersComponent,
+    OrderedProductsComponent
   ],
   imports: [
     CommonModule,

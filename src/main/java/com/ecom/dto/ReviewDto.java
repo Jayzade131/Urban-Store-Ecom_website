@@ -19,7 +19,7 @@ private Long id;
 	
 	
 	
-	private byte[] returnedImg;
+	private byte[] 	returnedImg;
 	
 	
 	private Long userId;

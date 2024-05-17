@@ -1,0 +1,66 @@
+<div class="title">
+    <h1>Product Details</h1>
+</div>
+<main class="container" *ngIf="product">
+
+    <!-- Left Column / Headphones Image -->
+    <div class="left-column">
+        <img data-image="red" class="active" [src]="product.processedImg" alt="product Image">
+    </div>
+
+
+    <!-- Right Column -->
+    <div class="right-column">
+
+        <!-- Product Description -->
+        <div class="product-description">
+            <span>{{product.categoryName}}</span>
+            <h1>{{product.name}}</h1>
+            <p>{{product.description}}</p>
+        </div>
+
+
+
+        <!-- Product Pricing -->
+        <div class="product-price">
+            <span>{{product.price | currency}}</span>
+        </div>
+    </div>
+</main>
+
+<div class="review-container" *ngIf="reviews.length >0">
+    <hr>
+    <div class="title">
+        <h1>Reviews</h1>
+    </div>
+    <div class="review-list" *ngIf="reviews">
+
+
+        <div class="review-card" *ngFor="let review of reviews">
+
+            <img [src]="review.processedImg" />
+
+            <div class="info">
+                <div class="rname">UserName : {{review.username}}</div>
+                <div class="rdesc">- {{review.description}}</div>
+                <div class="rrating">Rating: {{review.rating}}/5</div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="FAQ-container" *ngIf="faqs">
+    <hr>
+    <div class="title">
+        <h1>Frequenctly Asked Question</h1>
+    </div>
+    <div class="FAQ-list" *ngFor="let faq of faqs">
+        <ul>
+            <li>Question : {{faq.que}}
+            </li>
+            <li>Answer : {{faq.ans}}</li>
+        </ul>
+    </div>
+</div>

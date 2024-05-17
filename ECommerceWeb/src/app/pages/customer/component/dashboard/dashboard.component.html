@@ -1,21 +1,22 @@
-<form [formGroup]="searchProductForm" (submit)="formSubmit()" >
-    <mat-form-field appearance="outline" class="search-box">
-      <input matInput formControlName="title">
-      <button mat-button matSuffix color="primary"><mat-icon >search</mat-icon></button>
-    </mat-form-field>
-  </form>
-  
-  
-  <mat-grid-list cols="4" rowHeight="500px">
-    <mat-grid-tile *ngFor="let product of products">
-  <div class="card" >
-    <img [src]="product.processedImg" alt="Denim Jeans" style="width:100%">
-    <h1>{{product.name}}</h1>
-    <p>{{product.description}}</p>
-    <p class="price">${{product.price}}</p>
-    <div class="card-actions">
-      <button mat-raised-button color="warn" (click)="addcart(product.id)">Add To Cart</button>
+<form [formGroup]="searchProductForm" (submit)="formSubmit()">
+  <mat-form-field appearance="outline" class="search-box">
+    <input matInput formControlName="title">
+    <button mat-button matSuffix color="primary"><mat-icon>search</mat-icon></button>
+  </mat-form-field>
+</form>
+
+
+<mat-grid-list cols="4" rowHeight="500px">
+  <mat-grid-tile *ngFor="let product of products">
+    <div class="card">
+      <img [src]="product.processedImg" alt="Denim Jeans" style="width:100%"
+        [routerLink]="['/customer/productdetail', product.id]">
+      <h1>{{product.name}} </h1>
+      <p>{{product.description}}</p>
+      <p class="price">${{product.price}}</p>
+      <div class="card-actions">
+        <button mat-raised-button color="warn" (click)="addcart(product.id)">Add To Cart</button>
+      </div>
     </div>
-  </div>
   </mat-grid-tile>
-  </mat-grid-list>
+</mat-grid-list>

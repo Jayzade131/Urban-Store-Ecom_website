@@ -3,6 +3,7 @@
     margin: 0 auto;
     padding: 15px;
     display: flex;
+    margin-bottom: 350px;
 }
 
 /* Columns */
@@ -88,11 +89,7 @@
 
 }
 
-.review-container {
-    margin-top: 350px;
 
-
-}
 
 .review-list {
     max-width: fit-content;

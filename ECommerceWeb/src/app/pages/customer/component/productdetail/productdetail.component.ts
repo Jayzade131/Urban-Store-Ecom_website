@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 import { CustomerService } from '../../services/customer.service';
 
 @Component({
@@ -38,4 +39,20 @@ export class ProductdetailComponent implements OnInit {
     })
   }
 
+  addcart(productId: any) {
+
+    console.log(productId)
+    this.cs.addToCart(productId).subscribe(res => {
+      if (res.body != null) {
+
+
+        Swal.fire({
+          title: "Added",
+          text: "Product Add To Cart Successfully.. ",
+          icon: "success"
+        });
+      }
+    }
+    )
+  }
 }

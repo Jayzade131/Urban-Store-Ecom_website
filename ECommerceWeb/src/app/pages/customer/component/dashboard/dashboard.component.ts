@@ -10,50 +10,56 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  products : any[]=[];
-  searchProductForm!:FormGroup;
+  products: any[] = [];
+  searchProductForm!: FormGroup;
 
-  constructor(private customerService : CustomerService,
-    private fb :FormBuilder,
-    private snakbar :MatSnackBar
+  constructor(private customerService: CustomerService,
+    private fb: FormBuilder,
+    private snakbar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     this.getAllProducts();
     this.searchProductForm = this.fb.group({
-      title :[null,[Validators.required]]
+      title: [null, [Validators.required]]
     })
   }
-  getAllProducts()
-  {
-    this.products=[];
-    this.customerService.getAllProduct().subscribe(res =>{
+  getAllProducts() {
+    this.products = [];
+    this.customerService.getAllProduct().subscribe(res => {
       res.forEach(element => {
-        element.processedImg ='data:image/jpeg;base64,'+ element.byteimg;
-        this.products.push(element);        
+        element.processedImg = 'data:image/jpeg;base64,' + element.byteimg;
+        this.products.push(element);
       });
     })
   }
 
-  formSubmit(){
-    this.products=[];
-    const title=this.searchProductForm.get('title')!.value;
-    this.customerService.getAllProductByName(title).subscribe(res =>{
+  formSubmit() {
+    this.products = [];
+    const title = this.searchProductForm.get('title')!.value;
+    this.customerService.getAllProductByName(title).subscribe(res => {
       res.forEach(element => {
-        element.processedImg ='data:image/jpeg;base64,'+ element.byteimg;
-        this.products.push(element);        
+        element.processedImg = 'data:image/jpeg;base64,' + element.byteimg;
+        this.products.push(element);
       });
       console.log(this.products)
     })
   }
 
-  addcart(productId:any)
-  { 
+  addcart(productId: any) {
 
     console.log(productId)
-      this.customerService.addToCart(productId).subscribe(res =>{
-       this.snakbar.open("Product Add To Cart","Close",{duration:5000})
+    this.customerService.addToCart(productId).subscribe(res => {
+      if (res.body != null) {
+
+
+        Swal.fire({
+          title: "Added",
+          text: "Product Add To Cart Successfully.. ",
+          icon: "success"
+        });
       }
+    }
     )
   }
 }

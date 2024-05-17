@@ -25,6 +25,8 @@
         <div class="product-price">
             <span>{{product.price | currency}}</span>
         </div>
+        <button mat-raised-button color="primary" style="margin-top:40px ;" (click)="addcart(product.id)">Add To
+            Cart</button>
     </div>
 </main>
 

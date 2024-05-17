@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { UserStorageService } from 'src/app/services/storage/user-storage.service';
 import Swal from 'sweetalert2';
 import { CustomerService } from '../../services/customer.service';
 
@@ -18,6 +20,7 @@ export class ProductdetailComponent implements OnInit {
   constructor(
     private cs: CustomerService,
     private actRt: ActivatedRoute,
+    private sb: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -54,5 +57,25 @@ export class ProductdetailComponent implements OnInit {
       }
     }
     )
+  }
+
+
+  addwishlist() {
+    const wishlistDto = {
+      productId: this.productId,
+      userId: UserStorageService.getUserId(),
+    }
+    this.cs.addWishlist(wishlistDto).subscribe(res => {
+      if (res.id != null) {
+        this.sb.open('Add to Wishlist Successfully..!', 'close', {
+          duration: 5000
+        });
+      }
+      else {
+        this.sb.open('Already In Wishlist.', 'ERROR', {
+          duration: 5000
+        });
+      }
+    })
   }
 }

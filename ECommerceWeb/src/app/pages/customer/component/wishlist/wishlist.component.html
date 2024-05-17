@@ -1,0 +1,14 @@
+<mat-grid-list cols="4" rowHeight="500px">
+    <mat-grid-tile *ngFor="let product of products">
+        <div class="card">
+            <img [src]="product.processedImg" alt="Denim Jeans" style="width:100%">
+            <h1>{{product.productName}} </h1>
+            <p>{{product.productDesc}}</p>
+            <p class="price">${{product.price}}</p>
+            <div class="card-actions">
+                <button mat-raised-button color="warn" (click)="addcart(product.productId)">Add To Cart</button>
+
+            </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

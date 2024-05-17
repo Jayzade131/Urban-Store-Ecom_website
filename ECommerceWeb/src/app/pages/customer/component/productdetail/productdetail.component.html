@@ -25,8 +25,11 @@
         <div class="product-price">
             <span>{{product.price | currency}}</span>
         </div>
-        <button mat-raised-button color="primary" style="margin-top:40px ;" (click)="addcart(product.id)">Add To
+        <button mat-raised-button color="primary" style="margin:40px ;" (click)="addcart(product.id)">Add To
             Cart</button>
+        <button mat-mini-fab matTooltip="Accent" (click)="addwishlist()" color="accent">
+            <mat-icon>favorite</mat-icon>
+        </button>
     </div>
 </main>
 

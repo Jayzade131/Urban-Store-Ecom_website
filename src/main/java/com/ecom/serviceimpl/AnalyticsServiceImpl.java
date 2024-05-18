@@ -36,6 +36,9 @@ private	OrderRepo orderRepo;
 	
 	 Long delivered=orderRepo.countByOrderStatus(OrderStatus.Delivered);
 	 
+	 
+	 
+	 
 	 return new AnalyticsResponseDto(placed,shipped,delivered,currentMonthOrder,previousMonthOrder,
 			 currentMonthEarning,previousMonthEarning);
 	}
@@ -43,19 +46,19 @@ private	OrderRepo orderRepo;
 	private Long getTotalEarningForMonth(int month, int year) {
 		
 		Calendar calendar=Calendar.getInstance();
-		calendar.set(calendar.YEAR, year);
-		calendar.set(calendar.MONTH, month-1);
-		calendar.set(calendar.DAY_OF_MONTH, 0);
-		calendar.set(calendar.HOUR_OF_DAY, 0);
-		calendar.set(calendar.MINUTE, 0);
-		calendar.set(calendar.SECOND, 0);
+		calendar.set(Calendar.YEAR, year);
+		calendar.set(Calendar.MONTH, month-1);
+		calendar.set(Calendar.DAY_OF_MONTH, 1);
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
 		
 		Date startOfMonth = calendar.getTime();
 		
-		calendar.set(calendar.DAY_OF_MONTH, calendar.getActualMaximum(calendar.DAY_OF_MONTH));
-		calendar.set(calendar.HOUR_OF_DAY, 23);
-		calendar.set(calendar.MINUTE, 59);
-		calendar.set(calendar.SECOND, 59);
+		calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+		calendar.set(Calendar.HOUR_OF_DAY, 23);
+		calendar.set(Calendar.MINUTE, 59);
+		calendar.set(Calendar.SECOND, 59);
 		
 		Date endOfMonth = calendar.getTime();
 		
@@ -66,29 +69,32 @@ private	OrderRepo orderRepo;
 		for (Order order : orders) {
 			sum +=order.getAmount();
 		}
+		System.out.println("sum : "+sum);
 		return sum;
 	}
 
 	private Long getTotalOrdersForMonth(int month, int year) {
 		Calendar calendar=Calendar.getInstance();
-		calendar.set(calendar.YEAR, year);
-		calendar.set(calendar.MONTH, month-1);
-		calendar.set(calendar.DAY_OF_MONTH, 0);
-		calendar.set(calendar.HOUR_OF_DAY, 0);
-		calendar.set(calendar.MINUTE, 0);
-		calendar.set(calendar.SECOND, 0);
+		calendar.set(Calendar.YEAR, year);
+		calendar.set(Calendar.MONTH, month-1);
+		calendar.set(Calendar.DAY_OF_MONTH, 1);
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
 		
 		Date startOfMonth = calendar.getTime();
 		
-		calendar.set(calendar.DAY_OF_MONTH, calendar.getActualMaximum(calendar.DAY_OF_MONTH));
-		calendar.set(calendar.HOUR_OF_DAY, 23);
-		calendar.set(calendar.MINUTE, 59);
-		calendar.set(calendar.SECOND, 59);
+		calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+		calendar.set(Calendar.HOUR_OF_DAY, 23);
+		calendar.set(Calendar.MINUTE, 59);
+		calendar.set(Calendar.SECOND, 59);
 		
 		Date endOfMonth = calendar.getTime();
 		
 		List<Order> orders= orderRepo.findByDateBetweenAndOrderStatus(startOfMonth,endOfMonth,OrderStatus.Delivered);
-		
+		System.out.println((long)orders.size());
 		return (long)orders.size();
+		
+		
 	}
 }

@@ -5,7 +5,7 @@
 
         <div class="box box1">
             <div class="text">
-                <h2 class="topic-heading">60.5k</h2>
+                <h2 class="topic-heading">{{data.placed}}</h2>
                 <h2 class="topic">PLACED</h2>
             </div>
 
@@ -14,7 +14,7 @@
 
         <div class="box box2">
             <div class="text">
-                <h2 class="topic-heading">150</h2>
+                <h2 class="topic-heading">{{data.shipped}}</h2>
                 <h2 class="topic">SHIPPED</h2>
             </div>
 
@@ -23,7 +23,7 @@
 
         <div class="box box3">
             <div class="text">
-                <h2 class="topic-heading">320</h2>
+                <h2 class="topic-heading">{{data.delivered}}</h2>
                 <h2 class="topic">DELIVERED</h2>
             </div>
 
@@ -43,7 +43,7 @@
 
         <div class="box box1">
             <div class="text">
-                <h2 class="topic-heading">60.5k</h2>
+                <h2 class="topic-heading">{{data.currentMonthOrder}}</h2>
                 <h2 class="topic">CURRENT MONTH</h2>
             </div>
 
@@ -52,7 +52,7 @@
 
         <div class="box box2">
             <div class="text">
-                <h2 class="topic-heading">150</h2>
+                <h2 class="topic-heading">{{data.previousMonthOrder}}</h2>
                 <h2 class="topic">PREVIOUS MONTH</h2>
             </div>
 
@@ -74,7 +74,7 @@
 
         <div class="box box1">
             <div class="text">
-                <h2 class="topic-heading">60.5k</h2>
+                <h2 class="topic-heading">{{data.currentMonthEarning | currency}}</h2>
                 <h2 class="topic">CURRENT MONTH</h2>
             </div>
 
@@ -83,7 +83,7 @@
 
         <div class="box box2">
             <div class="text">
-                <h2 class="topic-heading">150</h2>
+                <h2 class="topic-heading">{{data.previousMonthEarning | currency}}</h2>
                 <h2 class="topic">PREVIOUS MONTH</h2>
             </div>
 

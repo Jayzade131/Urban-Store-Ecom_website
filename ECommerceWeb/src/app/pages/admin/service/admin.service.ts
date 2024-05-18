@@ -97,7 +97,11 @@ export class AdminService {
     })
   }
 
-
+  getAnalytics(): Observable<any> {
+    return this.http.get(BASIC_URL + 'api/admin/getAnalytics', {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
 
 
 

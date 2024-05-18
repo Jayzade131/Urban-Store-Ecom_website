@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../../service/admin.service';
 
 @Component({
   selector: 'app-analytics',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./analytics.component.css']
 })
 export class AnalyticsComponent implements OnInit {
+  data: any;
 
-  constructor() { }
+  constructor(private as: AdminService,) { }
 
   ngOnInit(): void {
+
+    this.as.getAnalytics().subscribe(res => {
+      console.log(res);
+      this.data = res;
+
+    })
   }
+
+
 
 }

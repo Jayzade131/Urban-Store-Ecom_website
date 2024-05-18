@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecom.dto.AnalyticsResponseDto;
 import com.ecom.dto.ChangeOrderDto;
 import com.ecom.dto.OrderDto;
 import com.ecom.service.AdminOrderService;
+import com.ecom.service.AnalyticsService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,6 +26,9 @@ import lombok.RequiredArgsConstructor;
 public class AdminOrderController {
 	@Autowired
 	private AdminOrderService adminOrderService;
+	
+	@Autowired
+	private  AnalyticsService analyticsService;
 	
 	@GetMapping("/getplacedorder")
 	public ResponseEntity<List<OrderDto>> getAllPlaceOrder()
@@ -43,6 +48,12 @@ public class AdminOrderController {
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(orderDto);
 		
+	}
+	
+	@GetMapping("/getAnalytics")
+	public ResponseEntity<AnalyticsResponseDto> getAnalytics()
+	{
+			return ResponseEntity.ok(analyticsService.getAnalytics());
 	}
 	
 }

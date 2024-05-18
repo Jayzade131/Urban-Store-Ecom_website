@@ -9,6 +9,9 @@ import { CouponComponent } from './component/coupon/coupon.component';
 import { OrdersComponent } from './component/orders/orders.component';
 import { FAQComponent } from './component/faq/faq.component';
 import { UpdateproductComponent } from './component/updateproduct/updateproduct.component';
+import { AnalyticsComponent } from './component/analytics/analytics.component';
+
+
 
 const routes: Routes = [
   { path: '', component: AdminComponent },
@@ -19,7 +22,10 @@ const routes: Routes = [
   { path: 'post-coupon', component: PostcouponComponent },
   { path: 'coupons', component: CouponComponent },
   { path: 'orders', component: OrdersComponent },
-  { path: 'faq/:productId', component: FAQComponent }
+  { path: 'faq/:productId', component: FAQComponent },
+  { path: 'analytics', component: AnalyticsComponent },
+
+
 ];
 
 @NgModule({

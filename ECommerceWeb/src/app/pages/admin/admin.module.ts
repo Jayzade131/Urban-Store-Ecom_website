@@ -26,6 +26,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import { FAQComponent } from './component/faq/faq.component';
 import { UpdateproductComponent } from './component/updateproduct/updateproduct.component';
+import { AnalyticsComponent } from './component/analytics/analytics.component';
 
 
 
@@ -41,7 +42,8 @@ import { UpdateproductComponent } from './component/updateproduct/updateproduct.
     CouponComponent,
     OrdersComponent,
     FAQComponent,
-    UpdateproductComponent
+    UpdateproductComponent,
+    AnalyticsComponent
   ],
   imports: [
     CommonModule,

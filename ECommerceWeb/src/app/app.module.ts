@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
@@ -37,6 +38,7 @@ import { MatTableModule } from '@angular/material/table';
     NavbarComponent,
     AdminNavComponent,
     CustomerNavComponent,
+    HomeComponent,
 
 
 
